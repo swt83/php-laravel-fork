@@ -1,10 +1,11 @@
 {
-    "name": "vendor/package",
-    "description": "",
+    "name": "travis/fork",
+    "description": "A Laravel PHP library for forking processes.",
+    "website": "https://github.com/swt83/php-laravel-fork",
     "authors": [
         {
             "name": "Scott Travis",
-            "email": "scott@swt83.com"
+            "email": "scott.w.travis@gmail.com"
         }
     ],
     "require": {
@@ -13,10 +14,10 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/commands"
         ],
         "psr-0": {
-            "Vendor\\Package\\": "src/"
+            "Travis": "src/"
         }
     },
     "minimum-stability": "dev"
