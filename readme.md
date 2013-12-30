@@ -10,16 +10,16 @@ You'll need to install the service provider in your ``app/config/app.php`` file:
 'Travis\Fork\Provider',
 ```
 
-Also, you'll need to register the command in your ``app/start/artisan.php`` file:
-
-```php
-Artisan::add(new ForkCommand);
-```
-
 You may also wish to add an alias to remove the namespace:
 
 ```php
 'Fork' => 'Travis\Fork'
+```
+
+Also, you'll need to register the command in your ``app/start/artisan.php`` file:
+
+```php
+Artisan::add(new ForkCommand);
 ```
 
 ## Usage
