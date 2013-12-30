@@ -25,6 +25,24 @@ class Fork {
     }
 
     /**
+     * Run the passed closure via command line, but synchronously for testing purposes.
+     *
+     * @param   function    $closure
+     * @return  void
+     */
+    public static function test($closure)
+    {
+        // prep
+        $closure = new SerializableClosure($closure);
+
+        // pack
+        $serialized = base64_encode(serialize($closure));
+
+        // pass
+        passthru('php '.base_path().'/artisan fork '.$serialized);
+    }
+
+    /**
      * Run the passed closure as received via command line.
      *
      * @param   function    $closure

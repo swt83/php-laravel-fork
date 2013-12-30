@@ -24,14 +24,21 @@ Artisan::add(new ForkCommand);
 
 ## Usage
 
-Just fork the code you want to run in the background.
+Just fork the code you want to run in the background:
 
 ```php
 Fork::run(function() use($foobar)
 {
-
     // do stuff
+});
+```
 
+If you want to test for errors, you can run your code synchronously with output:
+
+```php
+Fork::test(function() use($foobar)
+{
+    // do stuff
 });
 ```
 
