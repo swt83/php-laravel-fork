@@ -17,7 +17,7 @@
             "src/commands"
         ],
         "psr-0": {
-            "Travis": "src/"
+            "Travis\\": "src/"
         }
     },
     "minimum-stability": "dev"
