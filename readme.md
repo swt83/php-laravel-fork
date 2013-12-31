@@ -1,6 +1,6 @@
 # Fork
 
-A Laravel PHP library that allows you to "faux fork" processes into the background.  It uses a new ability in Laravel to serialize closures, which can then be executed in the command line in the background.
+A Laravel PHP library that allows you to fork processes into the background.  It uses a new ability in Laravel to serialize closures, which can then be executed in the command line in the background asynchronously.
 
 ## Install
 
@@ -33,7 +33,7 @@ Fork::run(function() use($foobar)
 });
 ```
 
-If you want to test for errors, you can run your code synchronously with output:
+If you want to test for errors, you can run your code synchronously:
 
 ```php
 Fork::test(function() use($foobar)
@@ -41,7 +41,3 @@ Fork::test(function() use($foobar)
     // do stuff
 });
 ```
-
-## Notes
-
-Executing code via command line can be dangerous and may require ``safe mode`` to ``off`` for it to work properly.
