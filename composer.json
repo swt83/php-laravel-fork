@@ -1,6 +1,6 @@
 {
     "name": "travis/fork",
-    "description": "A Laravel PHP library for forking processes.",
+    "description": "A Laravel PHP library for processing code in the background.",
     "website": "https://github.com/swt83/php-laravel-fork",
     "authors": [
         {
@@ -17,7 +17,7 @@
             "src/commands"
         ],
         "psr-0": {
-            "Travis\\": "src/"
+            "Travis\\": "src/models/"
         }
     },
     "minimum-stability": "dev"
