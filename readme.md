@@ -13,7 +13,7 @@ Normal install via Composer.
 Register the commands in your ``app/start/artisan.php`` file:
 
 ```php
-Artisan::add(new ForkCommand);
+Artisan::add(new Travis\Fork\Commands\ForkCommand);
 ```
 
 ## Usage
