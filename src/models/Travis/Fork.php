@@ -2,8 +2,6 @@
 
 namespace Travis;
 
-use \Illuminate\Support\SerializableClosure;
-
 class Fork {
 
     /**
@@ -15,13 +13,16 @@ class Fork {
     public static function run($closure)
     {
         // prep
-        $closure = new SerializableClosure($closure);
+        $closure = new \Illuminate\Support\SerializableClosure($closure);
 
         // pack
         $serialized = base64_encode(serialize($closure));
 
+        // environment
+        $environment = \App::environment();
+
         // pass
-        exec('php '.base_path().'/artisan fork '.$serialized.' > /dev/null 2>&1 &');
+        exec('php '.base_path().'/artisan fork '.$serialized.' --env='.$environment.' > /dev/null 2>&1 &');
     }
 
     /**
