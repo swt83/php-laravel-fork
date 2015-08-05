@@ -2,6 +2,8 @@
 
 namespace Travis;
 
+use SuperClosure\Serializer;
+
 class Fork {
 
     /**
@@ -12,17 +14,23 @@ class Fork {
      */
     public static function run($closure)
     {
-        // prep
-        $closure = new \Illuminate\Support\SerializableClosure($closure);
+        // serializer
+        $serializer = new Serializer();
+
+        // serialize
+        $serialized = $serializer->serialize($closure);
 
         // pack
-        $serialized = base64_encode(serialize($closure));
+        $packed = base64_encode(serialize($serialized));
 
         // environment
         $environment = \App::environment();
 
-        // pass
-        exec('php '.base_path().'/artisan fork '.$serialized.' --env='.$environment.' > /dev/null 2>&1 &');
+        // command
+        $command = 'php '.base_path().'/artisan fork '.$packed.' --env='.$environment.' > /dev/null 2>&1 &';
+
+        // execute
+        exec($command);
     }
 
     /**
@@ -45,8 +53,14 @@ class Fork {
      */
     public static function pickup($closure)
     {
+        // serializer
+        $serializer = new Serializer();
+
         // unpack
-        $unserialized = unserialize(base64_decode($closure));
+        $unpacked = unserialize(base64_decode($closure));
+
+        // unserialize
+        $unserialized = $serializer->unserialize($unpacked);
 
         // process
         $unserialized();

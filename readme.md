@@ -4,16 +4,20 @@ A Laravel PHP library for processing code in the background.
 
 This package uses a new ability in Laravel to serialize closures, which can then be executed in the command line in the background asynchronously.
 
+### Notes
+
+- Use tag ``1.1`` for Laravel version 5.1.
+
 ## Install
 
 Normal install via Composer.
 
 ### Commands
 
-Register the commands in your ``app/start/artisan.php`` file:
+Register the commands in your ``app/Console/Kernal.php`` file:
 
 ```php
-Artisan::add(new Travis\Fork\Commands\ForkCommand);
+\Travis\Fork\Commands\ForkCommand::class,
 ```
 
 ## Usage
