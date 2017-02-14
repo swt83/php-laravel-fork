@@ -4,10 +4,6 @@ A Laravel PHP library for processing code in the background.
 
 This package uses a new ability in Laravel to serialize closures, which can then be executed in the command line in the background asynchronously.
 
-### Notes
-
-- Use tag ``1.1`` for Laravel version 5.1.
-
 ## Install
 
 Normal install via Composer.
