@@ -4,8 +4,8 @@ namespace Travis;
 
 use SuperClosure\Serializer;
 
-class Fork {
-
+class Fork
+{
     /**
      * Run the passed closure via command line.
      *
@@ -65,5 +65,4 @@ class Fork {
         // process
         $unserialized();
     }
-
 }
