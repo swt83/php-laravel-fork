@@ -8,12 +8,27 @@ This package uses a new ability in Laravel to serialize closures, which can then
 
 Normal install via Composer.
 
-### Commands
+### Register
 
-Register the commands in your ``app/Console/Kernal.php`` file:
+In the old Laravel v5 way of doing things, you would edit the ``app/Console/Kernal.php`` file:
 
 ```php
-\Travis\Fork\Commands\ForkCommand::class,
+protected $commands = [
+    \Travis\Fork\Commands\ForkCommand::class,
+];
+```
+
+In the newer Laravel v8+ way of doing things, you would edit your ``Provider.php`` file:
+
+```php
+public function boot()
+{
+    if ($this->app->runningInConsole()) {
+        $this->commands([
+            \Travis\Fork\Commands\ForkCommand::class,
+        ]);
+    }
+}
 ```
 
 ## Usage
